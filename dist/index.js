@@ -48,7 +48,7 @@ try {
         if (err)
             throw err;
         console.log(data);
-        core.setOutput("command-id", (_a = data.Command) === null || _a === void 0 ? void 0 : _a.CommandId);
+        //core.setOutput("command-id", (_a = data.Command) === null || _a === void 0 ? void 0 : _a.CommandId);
     });
 }
 catch (err) {
