@@ -31,13 +31,23 @@ try {
 
       console.log(data);
 
-      core.setOutput("command-id", data.Command?.CommandId);
+      //core.setOutput("command-id", data.Command?.CommandId);
     }
   );
-} catch (err) {
-  console.error(err, err.stack);
-  core.setFailed(err);
+// } catch (err) {
+//   console.error(err, err.stack);
+//   core.setFailed(err);
+// }
+} catch (_err) {
+  if (_err instanceof Error) {
+    console.error(_err, _err.stack);
+    core.setFailed(_err.message); // Error case
+  } else {
+    console.error("An unknown error occurred");
+    core.setFailed("An unknown error occurred"); // Non-Error case
+  }
 }
+
 
 function SanitizeInputs() {
   // AWS
